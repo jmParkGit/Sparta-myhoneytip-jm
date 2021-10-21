@@ -64,13 +64,16 @@ export default function MainPage({navigation,route}) {
         <StatusBar style="black" />
         {/* <Text style={styles.title}>나만의 꿀팁</Text> */}
         <Text style={styles.weather}>오늘의 날씨: {todayWeather + '°C ' + todayCondition} </Text>
+        <ScrollView style={styles.introduceContainer} horizontal indicatorStyle={"white"}>
+          <TouchableOpacity style={styles.introduceButton} onPress={()=>{navigation.navigate('AboutPage')}}><Text style={styles.introduceButtonText}>소개페이지</Text></TouchableOpacity>
+        </ScrollView>
         <Image style={styles.mainImage} source={main}/>
         <ScrollView style={styles.middleContainer} horizontal indicatorStyle={"white"}>
             <TouchableOpacity style={styles.middleButtonAll} onPress={()=>{category('전체보기')}}><Text style={styles.middleButtonTextAll}>전체보기</Text></TouchableOpacity>
             <TouchableOpacity style={styles.middleButton01} onPress={()=>{category('생활')}}><Text style={styles.middleButtonText}>생활</Text></TouchableOpacity>
             <TouchableOpacity style={styles.middleButton02} onPress={()=>{category('재테크')}}><Text style={styles.middleButtonText}>재테크</Text></TouchableOpacity>
             <TouchableOpacity style={styles.middleButton03} onPress={()=>{category('반려견')}}><Text style={styles.middleButtonText}>반려견</Text></TouchableOpacity>
-            <TouchableOpacity style={styles.middleButton04} onPress={()=>{category('꿀팁 찜')}}><Text style={styles.middleButtonText}>꿀팁 찜</Text></TouchableOpacity>
+            <TouchableOpacity style={styles.middleButton04} onPress={()=>{navigation.navigate('LikePage')}}><Text style={styles.middleButtonText}>꿀팁 찜</Text></TouchableOpacity>
         </ScrollView>
         <View style={styles.cardContainer}>
             {/* 하나의 카드 영역을 나타내는 View */}
@@ -102,7 +105,8 @@ const styles = StyleSheet.create({
   },
 weather:{
     alignSelf:"flex-end",
-    paddingRight:20
+    paddingRight:20,
+    marginTop:10
   },
   mainImage: {
     //컨텐츠의 넓이 값
@@ -120,6 +124,26 @@ weather:{
     marginTop:20,
     marginLeft:10,
     height:60
+  },
+  introduceContainer:{
+    height:60,
+    alignSelf:"flex-end",
+    paddingRight:20,
+  },
+  introduceButton:{
+    width:100,
+    height:50,
+    padding:15,
+    backgroundColor:"#ff33ff",
+    borderColor:"deeppink",
+    borderRadius:15,
+    margin:7,
+  },
+  introduceButtonText:{
+    color:"#fff",
+    fontWeight:"700",
+    //텍스트의 현재 위치에서의 정렬 
+    textAlign:"center"
   },
   middleButtonAll: {
     width:100,

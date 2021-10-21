@@ -1,7 +1,20 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {StyleSheet, View, Text, ScrollView, Image, TouchableOpacity} from 'react-native';
 
-export default function AboutPabe() {
+export default function AboutPage({navigation,route}) {
+
+    useEffect(()=>{
+        console.log(route)
+        navigation.setOptions({
+            title:"소개페이지",
+            headerStyle: {
+                backgroundColor: '#1022E6',
+                shadowColor: "#1022E6",
+            },
+            headerTintColor: "#fff",
+        })
+    },[])
+
     return (
         <ScrollView style={styles.container}>
             <View style={styles.title}>
