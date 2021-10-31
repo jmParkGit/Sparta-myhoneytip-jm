@@ -35,7 +35,7 @@ export default function LikePage({navigation,route}) {
 
 
     return ( 
-        <View style={styles.cardContainer}>
+        <ScrollView style={styles.cardContainer}>
             {/* 하나의 카드 영역을 나타내는 View */}
             {
             tip.map((content,i)=>{
@@ -43,17 +43,13 @@ export default function LikePage({navigation,route}) {
             })
             }
             
-        </View>
+        </ScrollView>
     
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor:"#000"
-    },
     cardContainer:{
-        marginTop:10,
-        marginLeft:10
+        backgroundColor:"#fff"
     }
 })

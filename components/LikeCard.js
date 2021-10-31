@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
       borderBottomWidth:0.5,
       borderBottomColor:"#eee",
       paddingBottom:10,
-      marginBottom:80
     },
     cardImage: {
       flex:1,
