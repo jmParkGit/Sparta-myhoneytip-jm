@@ -29,15 +29,16 @@ export default function Card({content,navigation}){
         AdMobInterstitial.addEventListener("interstitialDidClose", () => {
               //광고가 끝나면 다음 코드 줄이 실행!
             console.log("interstitialDidClose")
-            navigation.navigate('DetailPage',{idx:content.idx})
+            //navigation.navigate('DetailPage',{idx:content.idx})
+            //console.log("idx: "+ content.idx);
         });
     },[])
     const goDetail = async () =>{
-
-      
-
-      await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
-      await AdMobInterstitial.showAdAsync();
+      try {
+        await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
+        await AdMobInterstitial.showAdAsync();
+      } catch (e) { console.log(e) }
+      await navigation.navigate('DetailPage',{idx:content.idx})
     }
 
     return(
